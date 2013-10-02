@@ -312,6 +312,14 @@ module OpenStack
           post(:action, {}, {:addFloatingIp => {:address => floating_ip.ip}}.to_json)
         end
 
+        # Remove a floating IP from the server
+        #
+        # ==== Attributes
+        # * +floating_ip+ - a FloatingIP to be removed from the server.
+        def remove_floating_ip(floating_ip)
+          post(:action, {}, {:removeFloatingIp => {:address => floating_ip.ip}}.to_json)
+        end
+
         # Reboot the server
         #
         # ==== Attributes
